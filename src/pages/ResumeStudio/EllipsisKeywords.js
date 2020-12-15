@@ -51,10 +51,7 @@ export default ({
         ))}
       </div>
       <div sx={{ textAlign: "center", mb: 3 }}>
-        <EllipsisTrigger
-          expanded={expanded}
-          setExpanded={setExpanded}
-        ></EllipsisTrigger>
+        <EllipsisTrigger expanded={expanded} setExpanded={setExpanded} />
       </div>
     </div>
   );

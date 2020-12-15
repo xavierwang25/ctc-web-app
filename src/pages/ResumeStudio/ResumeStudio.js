@@ -124,7 +124,7 @@ export default () => {
           mb: 12,
         }}
       >
-        <JobDetail job={job}></JobDetail>
+        <JobDetail job={job} />
       </div>
       <div
         sx={{ display: "grid", gridTemplateColumns: "2fr 3fr", gridGap: 10 }}
@@ -160,19 +160,19 @@ export default () => {
                 info={`${matchingKeywords.length} / ${job.keywords.length}`}
                 keywords={matchingKeywords}
                 onHoverKeyword={(keyword) => setHoveredKeyword(keyword)}
-              ></EllipsisKeywords>
+              />
               <EllipsisKeywords
                 title="Similar Keywords"
                 info={`${similarKeywords.length} / ${job.keywords.length}`}
                 keywords={similarKeywords}
                 onHoverKeyword={(keyword) => setHoveredKeyword(keyword)}
-              ></EllipsisKeywords>
+              />
               <EllipsisKeywords
                 title="Missing Keywords"
                 info={`${missingKeywords.length} / ${job.keywords.length}`}
                 keywords={missingKeywords}
                 onHoverKeyword={(keyword) => setHoveredKeyword(keyword)}
-              ></EllipsisKeywords>
+              />
             </div>
           </LoadingOverlay>
           <div sx={{ pl: 4, fontSize: 2, color: "darkText", mb: 2, mt: 6 }}>
@@ -184,7 +184,7 @@ export default () => {
               description={job.description}
               keywords={[hoveredKeyword.value]}
               sx={{ mt: 2 }}
-            ></Description>
+            />
           </div>
         </div>
         <div>
@@ -238,7 +238,7 @@ export default () => {
                   <ResumeEdit
                     value={resumeText}
                     onChange={(e) => setResumeText(e.target.value)}
-                  ></ResumeEdit>
+                  />
                 ) : (
                   <Highlighter
                     highlightClassName="keyword-highlight"
@@ -256,7 +256,7 @@ export default () => {
                     }}
                     searchWords={[getSearchWord(hoveredKeyword)]}
                     textToHighlight={job.resume_text}
-                  ></Highlighter>
+                  />
                 )}
               </div>
             </LoadingOverlay>

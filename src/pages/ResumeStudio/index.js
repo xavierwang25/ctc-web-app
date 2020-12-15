@@ -1,3 +1,3 @@
-import ResumeStudio from './ResumeStudio';
+import ResumeStudio from "./ResumeStudio";
 
 export default ResumeStudio;

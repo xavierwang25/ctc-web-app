@@ -1,10 +1,11 @@
 import request from "../utils/request";
-import { ActionType } from "redux-promise-middleware";
-import { createSelector } from "reselect";
-import { schema, normalize } from "normalizr";
 import _ from "lodash";
 import fp from "lodash/fp";
 import produce from "immer";
+import { ActionType } from "redux-promise-middleware";
+import { createSelector } from "reselect";
+import { schema, normalize } from "normalizr";
+
 import { REMOVE_JOB, CHANGE_JOB_POSITION } from "./jobs";
 
 export const GET_POSITIONS = "GET_POSITIONS";

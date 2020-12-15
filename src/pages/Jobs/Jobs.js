@@ -91,7 +91,7 @@ export default () => {
 
   const handleDragEnd = ({ draggableId, destination }) => {
     if (!destination) return null;
-    
+
     dispatch(movePosition(parseInt(draggableId), destination.index + 1));
   };
 
@@ -121,7 +121,7 @@ export default () => {
       setIsSuggestOpen(true);
       setProceedUrl(job.url);
     }
-  }
+  };
 
   return (
     <DndProvider backend={Backend}>
@@ -157,7 +157,7 @@ export default () => {
                             onPositionChange={setPositionName}
                             onSave={handleSave}
                             onClose={() => setEditPositionId(0)}
-                          ></EditPosition>
+                          />
                         ) : (
                           <Draggable
                             key={position.id}
@@ -189,7 +189,7 @@ export default () => {
                                 onJobDrop={(job) =>
                                   dispatch(changeJobPosition(job, position))
                                 }
-                              ></PositionTab>
+                              />
                             )}
                           </Draggable>
                         )
@@ -206,7 +206,7 @@ export default () => {
                                   setEditPositionId(0);
                                 }}
                                 onClose={() => setEditPositionId(0)}
-                              ></EditPosition>
+                              />
                             ) : (
                               <Tab active={positions.length === 0}>
                                 <Link
@@ -258,7 +258,7 @@ export default () => {
                 </div>
               </LoadingOverlay>
             ) : (
-              <NoJobs></NoJobs>
+              <NoJobs />
             )}
           </Fragment>
         )}
@@ -266,7 +266,7 @@ export default () => {
           isOpen={isUploadOpen}
           onClose={() => setIsUploadOpen(false)}
           onUpload={(file) => dispatch(uploadResume(uploadJobId, file))}
-        ></ResumeUpload>
+        />
         <UpdateSuggest
           isOpen={isSuggestOpen}
           onClose={() => setIsSuggestOpen(false)}
@@ -274,7 +274,7 @@ export default () => {
             window.open(proceedUrl);
             setIsSuggestOpen(false);
           }}
-        ></UpdateSuggest>
+        />
       </Page>
     </DndProvider>
   );

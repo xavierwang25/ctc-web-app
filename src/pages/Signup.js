@@ -1,19 +1,19 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { jsx } from "theme-ui";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
-import { register, REGISTER } from '../store/auth';
-import { makeLoadingSelector } from '../store/loading';
-import { makeErrorSelector } from '../store/error';
-import Input from '../components/Input';
-import Link from '../components/Link';
-import Button from '../components/Button';
-import Page from '../components/Page';
-import Error from '../components/Error';
-import LoadingOverlay from '../components/LoadingOverlay';
+import { register, REGISTER } from "../store/auth";
+import { makeLoadingSelector } from "../store/loading";
+import { makeErrorSelector } from "../store/error";
+import Input from "../components/Input";
+import Link from "../components/Link";
+import Button from "../components/Button";
+import Page from "../components/Page";
+import Error from "../components/Error";
+import LoadingOverlay from "../components/LoadingOverlay";
 
 export default () => {
   const dispatch = useDispatch();
@@ -23,34 +23,34 @@ export default () => {
 
   const { handleSubmit, getFieldProps, touched, errors } = useFormik({
     initialValues: {
-      fullName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      fullName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
     validationSchema: Yup.object({
-      fullName: Yup.string().required('Required'),
-      email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string().required('Required'),
+      fullName: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().required("Required"),
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'Passwords do not match')
-        .required('Required'),
+        .oneOf([Yup.ref("password"), null], "Passwords do not match")
+        .required("Required"),
     }),
     onSubmit: async (values) => {
       await dispatch(register(values.email, values.password));
-      history.replace('/');
+      history.replace("/");
     },
   });
 
   return (
-    <Page sx={{ justifyContent: 'center', alignItems: 'center' }}>
+    <Page sx={{ justifyContent: "center", alignItems: "center" }}>
       <LoadingOverlay loading={loading}>
         <form
           onSubmit={handleSubmit}
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <div
@@ -58,22 +58,22 @@ export default () => {
               width: 320,
               py: 10,
               px: 6,
-              boxShadow: 'medium',
-              textAlign: 'center',
-              backgroundColor: 'white',
+              boxShadow: "medium",
+              textAlign: "center",
+              backgroundColor: "white",
             }}
           >
-            <div sx={{ fontSize: 2, fontWeight: 'bold', mb: 10 }}>
+            <div sx={{ fontSize: 2, fontWeight: "bold", mb: 10 }}>
               Create an Account
             </div>
             {error && (
-              <Error sx={{ textAlign: 'center' }}>Account already exists</Error>
+              <Error sx={{ textAlign: "center" }}>Account already exists</Error>
             )}
             <Input
               name="fullName"
               placeholder="Full Name"
               sx={{ mt: 4 }}
-              {...getFieldProps('fullName')}
+              {...getFieldProps("fullName")}
             ></Input>
             {touched.fullName && errors.fullName && (
               <Error>{errors.fullName}</Error>
@@ -82,7 +82,7 @@ export default () => {
               name="email"
               placeholder="Email"
               sx={{ mt: 4 }}
-              {...getFieldProps('email')}
+              {...getFieldProps("email")}
             ></Input>
             {touched.email && errors.email && <Error>{errors.email}</Error>}
             <Input
@@ -90,7 +90,7 @@ export default () => {
               name="password"
               placeholder="Password"
               sx={{ mt: 4 }}
-              {...getFieldProps('password')}
+              {...getFieldProps("password")}
             ></Input>
             {touched.password && errors.password && (
               <Error>{errors.password}</Error>
@@ -100,7 +100,7 @@ export default () => {
               name="confirmPassword"
               placeholder="Confirm Password"
               sx={{ mt: 4 }}
-              {...getFieldProps('confirmPassword')}
+              {...getFieldProps("confirmPassword")}
             ></Input>
             {touched.confirmPassword && errors.confirmPassword && (
               <Error>{errors.confirmPassword}</Error>

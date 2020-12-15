@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui';
-import LoadingOverlay from 'react-loading-overlay';
+import { jsx, useThemeUI } from "theme-ui";
+import LoadingOverlay from "react-loading-overlay";
 
 export default ({
   loading,
-  overlayColor = 'rgba(255, 255, 255, 0.7)',
+  overlayColor = "rgba(255, 255, 255, 0.7)",
   spinner = true,
   children,
   ...props
@@ -16,16 +16,16 @@ export default ({
       spinner={spinner}
       fadeSpeed={200}
       styles={{
-        overlay: base => ({
+        overlay: (base) => ({
           ...base,
-          background: overlayColor
+          background: overlayColor,
         }),
-        spinner: base => ({
+        spinner: (base) => ({
           ...base,
-          '& svg circle': {
-            stroke: theme.colors.primary
-          }
-        })
+          "& svg circle": {
+            stroke: theme.colors.primary,
+          },
+        }),
       }}
       {...props}
     >

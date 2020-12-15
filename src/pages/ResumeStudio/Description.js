@@ -1,17 +1,17 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { useState } from 'react';
-import Highlighter from 'react-highlight-words';
-import EllipsisTrigger from './EllipsisTrigger';
+import { jsx } from "theme-ui";
+import { useState } from "react";
+import Highlighter from "react-highlight-words";
+import EllipsisTrigger from "./EllipsisTrigger";
 
 export default ({ description, keywords = [], maxLines = 15, ...props }) => {
   const [expanded, setExpanded] = useState(false);
   const ellipsisStyle = expanded
     ? {}
     : {
-        overflow: 'hidden',
-        display: '-webkit-box',
-        WebkitBoxOrient: 'vertical',
+        overflow: "hidden",
+        display: "-webkit-box",
+        WebkitBoxOrient: "vertical",
         WebkitLineClamp: `${maxLines}`,
       };
 
@@ -22,24 +22,21 @@ export default ({ description, keywords = [], maxLines = 15, ...props }) => {
         searchWords={keywords}
         textToHighlight={description}
         sx={{
-          '*': {
+          "*": {
             fontSize: 2,
           },
-          whiteSpace: 'pre-line',
-          wordBreak: 'break-word',
+          whiteSpace: "pre-line",
+          wordBreak: "break-word",
           ...ellipsisStyle,
-          '.keyword-highlight': {
-            bg: 'primary',
-            color: 'white',
+          ".keyword-highlight": {
+            bg: "primary",
+            color: "white",
           },
         }}
         {...props}
-      ></Highlighter>
-      <div sx={{ textAlign: 'center', mb: 3 }}>
-        <EllipsisTrigger
-          expanded={expanded}
-          setExpanded={setExpanded}
-        ></EllipsisTrigger>
+      />
+      <div sx={{ textAlign: "center", mb: 3 }}>
+        <EllipsisTrigger expanded={expanded} setExpanded={setExpanded} />
       </div>
     </div>
   );

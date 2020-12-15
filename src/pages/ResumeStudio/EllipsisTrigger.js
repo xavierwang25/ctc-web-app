@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import Link from '../../components/Link';
+import { jsx } from "theme-ui";
+import Link from "../../components/Link";
 
 export default ({ expanded, setExpanded }) =>
   expanded ? (

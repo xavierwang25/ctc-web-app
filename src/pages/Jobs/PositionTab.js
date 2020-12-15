@@ -1,14 +1,14 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { Fragment, forwardRef } from 'react';
-import { useDrop } from 'react-dnd';
-import { ellipsis } from 'polished';
-import ReactHoverObserver from 'react-hover-observer';
-import _ from 'lodash';
+import { jsx } from "theme-ui";
+import { Fragment, forwardRef } from "react";
+import { useDrop } from "react-dnd";
+import { ellipsis } from "polished";
+import ReactHoverObserver from "react-hover-observer";
+import _ from "lodash";
 
-import Tab from '../../components/Tab';
-import Link from '../../components/Link';
-import composeRefs from '@seznam/compose-react-refs';
+import Tab from "../../components/Tab";
+import Link from "../../components/Link";
+import composeRefs from "@seznam/compose-react-refs";
 
 export default forwardRef(
   (
@@ -24,22 +24,22 @@ export default forwardRef(
     ref
   ) => {
     const [{ isOver }, drop] = useDrop({
-      accept: 'JOB',
+      accept: "JOB",
       drop(item) {
         onJobDrop(item.job);
       },
-      collect: monitor => ({
-        isOver: monitor.isOver()
-      })
+      collect: (monitor) => ({
+        isOver: monitor.isOver(),
+      }),
     });
     return (
-      <ReactHoverObserver sx={{ display: 'inline-block' }}>
+      <ReactHoverObserver sx={{ display: "inline-block" }}>
         {({ isHovering }) => (
           <Tab
             active={active && !isDragging}
             sx={_.merge(
-              { width: 200, display: 'flex' },
-              isOver && { bg: 'primary', color: 'white' }
+              { width: 200, display: "flex" },
+              isOver && { bg: "primary", color: "white" }
             )}
             ref={composeRefs(drop, ref)}
             {...props}
@@ -50,17 +50,17 @@ export default forwardRef(
             {isHovering && !isDragging && (
               <Fragment>
                 <Link
-                  onClick={e => {
+                  onClick={(e) => {
                     e.stopPropagation();
                     onEditClick();
                   }}
-                  color={isOver ? 'white' : 'text'}
+                  color={isOver ? "white" : "text"}
                   sx={{ ml: 2 }}
                 >
                   <i className="fas fa-pen"></i>
                 </Link>
                 <Link
-                  onClick={e => {
+                  onClick={(e) => {
                     e.stopPropagation();
                     if (
                       !window.confirm(
@@ -70,7 +70,7 @@ export default forwardRef(
                       return;
                     onRemoveClick();
                   }}
-                  color={isOver ? 'white' : 'text'}
+                  color={isOver ? "white" : "text"}
                   sx={{ ml: 2 }}
                 >
                   <i className="fas fa-trash"></i>

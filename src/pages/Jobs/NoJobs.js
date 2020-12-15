@@ -1,25 +1,25 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui';
-import Button from '../../components/Button';
-import Step from './Step';
+import { jsx, useThemeUI } from "theme-ui";
+import Button from "../../components/Button";
+import Step from "./Step";
 
 export default () => {
   const { theme } = useThemeUI();
 
   return (
-    <div sx={{ p: 12, boxShadow: 'medium', flex: 1, backgroundColor: 'white' }}>
+    <div sx={{ p: 12, boxShadow: "medium", flex: 1, backgroundColor: "white" }}>
       <div
         sx={{
           border: `1px dashed ${theme.colors.text}`,
           py: [6, 13],
           px: [6, 19],
-          textAlign: 'center'
+          textAlign: "center",
         }}
       >
-        <div sx={{ fontSize: 2, color: 'text' }}>
+        <div sx={{ fontSize: 2, color: "text" }}>
           There's nothing here... Yet!
         </div>
-        <div sx={{ fontSize: 2, color: 'text', mt: 9 }}>
+        <div sx={{ fontSize: 2, color: "text", mt: 9 }}>
           Follow these 6 setps to quickly find your next job and improve your
           ATS ranking:
         </div>

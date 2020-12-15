@@ -1,14 +1,14 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import Link from './Link';
-import SocialContainer from './SocialContainer';
+import { jsx } from "theme-ui";
+import Link from "./Link";
+import SocialContainer from "./SocialContainer";
 
 export default () => (
   <div
     sx={{
-      textAlign: 'center',
-      bg: 'white',
-      py: 12
+      textAlign: "center",
+      bg: "white",
+      py: 12,
     }}
   >
     <div>

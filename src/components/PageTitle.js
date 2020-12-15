@@ -1,14 +1,14 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx } from "theme-ui";
 
 export default ({ children, ...props }) => (
   <h1
     sx={{
-      color: 'text',
+      color: "text",
       fontSize: 5,
-      fontWeight: 'normal',
+      fontWeight: "normal",
       mt: 0,
-      mb: 5
+      mb: 5,
     }}
     {...props}
   >

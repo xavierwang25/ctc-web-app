@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from "lodash";
 
 export default (state = {}, action) => {
   const matches = /(.*)_(PENDING|FULFILLED|REJECTED)/.exec(action.type);
@@ -9,9 +9,9 @@ export default (state = {}, action) => {
   const [, requestName, requestState] = matches;
   return {
     ...state,
-    [requestName]: requestState === 'PENDING'
+    [requestName]: requestState === "PENDING",
   };
 };
 
-export const makeLoadingSelector = actions => state =>
-  _(actions).some(action => _.get(state, `loading.${action}`));
+export const makeLoadingSelector = (actions) => (state) =>
+  _(actions).some((action) => _.get(state, `loading.${action}`));
